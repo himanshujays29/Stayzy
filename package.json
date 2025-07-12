@@ -1,0 +1,25 @@
+{
+  "name": "stayzy",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/himanshujays29/Stayzy.git"
+  },
+  "author": "Himanshu jayswal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/himanshujays29/Stayzy/issues"
+  },
+  "homepage": "https://github.com/himanshujays29/Stayzy#readme",
+  "description": "",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "mongoose": "^8.16.2"
+  }
+}
