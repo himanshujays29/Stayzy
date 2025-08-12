@@ -1,28 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stayzy</title>
-</head>
-<body>
-    <h2>Create a New Listing</h2>
-    <hr>
-    <form action="/listings" method="post">
-        <input name="listing[title]" type="text" placeholder="enter title">
+<% layout('/layout/layout') -%>
         <br><br>
-        <textarea name="listing[description]" placeholder="enter description"></textarea>
-        <br><br>
-        <input name="listing[image]" type="text" placeholder="enter image URL/Link">
-        <br><br>
-        <input name="listing[price]" type="number" placeholder="enter price">
-        <br><br>
-        <input name="listing[country]" type="text" placeholder="enter country">
-        <br><br>
-        <input name="listing[location]" type="text" placeholder="enter location">
-        <br>
-        <br>
-         <button>Add</button>
-    </form>
-</body>
-</html>
+        <h2>Create a New Listing</h2>
+       
+        <div class="row">
+            <div class="col-8 offset-2">
+
+                <form action="/listings" method="post" novalidate class="needs-validation">
+
+                    <div class="mb-3">
+                        <label for="title" class="form-lable">Title</label>
+                        <input name="listing[title]" class="form-control" type="text" placeholder="Add a catchy title" required>
+                        <div class="valid-feedback">
+                           Title looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="discription">Description</label><br>
+                        <textarea cols="104" name="listing[description]" required></textarea>
+                        <div class="invalid-feedback">
+                            Please enteer a short discription.
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="image" class="form-lable">Image URL</label>
+                        <input name="listing[image]" class="form-control" type="text"
+                            placeholder="enter image URL/Link">
+                    </div>
+
+                    <div class="row">
+                        <div class="mb-3 col-md-4">
+                            <label for="price" class="form-lable">Price</label>
+                            <input name="listing[price]" class="form-control" placeholder="&#8377; 1200" required>
+                            <div class="invalid-feedback">
+                                Price should be valid.
+                            </div>
+                        </div>
+                        <div class="mb-3 col-md-8" >
+                            <label for="country" class="form-lable">Country</label>
+                            <input name="listing[country]" class="form-control" type="text" placeholder="India" required>
+                            <div class="invalid-feedback">
+                                Country name should be valid.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="location" class="form-lable">Location</label>
+                        <input name="listing[location]" class="form-control" type="text" placeholder="Jaipur, Rajasthan" required>
+                        <div class="invalid-feedback">
+                            Location should be valid.
+                        </div>
+                    </div>
+               
+                    <button class="btn btn-dark add-btn mt-3">Add</button>
+                    <br><br>
+                </form>
+            </div>
+        </div>
