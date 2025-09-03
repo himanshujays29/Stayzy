@@ -35,12 +35,19 @@ const sessionOptions = {
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/Stayzy";
 
-app.get("/", (req, res)=>{
-    res.send("Server is Runing");
-});
 
 app.use(session(sessionOptions));
 app.use(flash());
+
+app.use((req, res, next)=>{
+    res.locals.success = req.flash("success");
+    res.locals.error = req.flash("error");
+    next();
+});
+
+app.get("/", (req, res)=>{
+    res.render("listings/home.ejs");
+});
 
 main().then((res)=>{
     console.log("Connected to DB");
