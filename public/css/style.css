@@ -27,9 +27,10 @@
  /* NavBar */
 
  .navbar {
-     background-color: rgb(255, 255, 255);
+     background-color: rgba(255, 255, 255, 0.7);
      height: 4rem;
-     backdrop-filter: blur(100px);
+     border-color: #e1e7ef !important;
+     backdrop-filter: blur(8px);
      -webkit-backdrop-filter: blur(100px);
  }
 
@@ -343,15 +344,15 @@
  }
 
  .browse-btn {
-    font-size: 15px;
-    font-weight: 400;
-    padding: 10px 20px;
-    color: white;
-    background: linear-gradient(to right, #0c91ca, #34dcef);
-    border: none;
-    border-radius: 9px;
-    cursor: pointer;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+     font-size: 15px;
+     font-weight: 400;
+     padding: 10px 20px;
+     color: white;
+     background: linear-gradient(to right, #0c91ca, #34dcef);
+     border: none;
+     border-radius: 9px;
+     cursor: pointer;
+     transition: transform 0.4s ease, box-shadow 0.4s ease;
  }
 
  .browse-btn i {
@@ -359,16 +360,16 @@
  }
 
  .list-btn {
-    font-size: 15px;
-    font-weight: 400;
-    padding: 9px 20px;
-    background: #ffffff4d;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(10px);
-    color: #ffff;
-    border: 1px solid #ffffff4d;
-    transition: color 0.2s ;
-    border-radius: 9px;
+     font-size: 15px;
+     font-weight: 400;
+     padding: 9px 20px;
+     background: #ffffff4d;
+     backdrop-filter: blur(4px);
+     -webkit-backdrop-filter: blur(10px);
+     color: #ffff;
+     border: 1px solid #ffffff4d;
+     transition: color 0.2s;
+     border-radius: 9px;
  }
 
  .list-btn i {
@@ -376,10 +377,68 @@
  }
 
  .list-btn:hover {
-    color: #a5e4ff;
+     color: #a5e4ff;
  }
 
  .browse-btn:hover {
      transform: scale(1.04);
      box-shadow: 0 8px 20px rgb(16 16 16 / 60%);
  }
+
+
+ /* Why Choose */
+
+ 
+.why-choose {
+  background-color: #f4f5f6;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.why-choose h2 {
+    margin-bottom: 12px;
+    font-weight: 750;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+}
+
+.why-choose .subtitle {
+  color: #808ea3;
+  margin-bottom: 50px;
+  font-size: 16px;
+}
+
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  flex-wrap: wrap;
+}
+
+.feature-box {
+  max-width: 320px;
+}
+
+.wyc-icon {
+  background: linear-gradient(to right, #0c91ca, #34dcef);
+  color: #fff;
+  font-size: 22px;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+}
+
+.feature-box h3 {
+  margin-bottom: 10px;
+  font-size: 1.25rem;
+line-height: 1.75rem;
+font-weight: 600;
+}
+
+.feature-box p {
+  color: #808ea3;
+  font-size: 14px;
+  line-height: 1.6;
+}
