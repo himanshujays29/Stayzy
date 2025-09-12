@@ -1,0 +1,29 @@
+<% layout('/layout/layout') -%>
+   <div class="signup-container">
+  <div class="signup-box">
+    <h2 class="signup-title">Create Account</h2>
+    <p class="subtitle">Enter your information to create a new account</p>
+
+    <form action="/signup" method="post" class="signup-form">
+      <div>
+        <label for="username" class="signup-label">Username</label>
+        <input type="text" id="username" name="username" class="signup-input" placeholder="Enter your username" required>
+      </div>
+
+      <div>
+        <label for="email" class="signup-label">Email</label>
+        <input type="email" id="email" name="email" class="signup-input" placeholder="Enter your email" required>
+      </div>
+
+      <div>
+        <label for="password" class="signup-label">Password</label>
+        <input type="password" id="password" name="password" class="signup-input" placeholder="Enter your password" required>
+      </div>
+
+      <button type="submit" class="signup-btn">Create Account</button>
+    </form>
+
+    <p class="login-text">Already have an account? <a href="/login">Sign in</a></p>
+    <a href="/listings" class="back-home">← Back to Home</a>
+  </div>
+</div>

@@ -30,3 +30,17 @@ navbarLinks.forEach(link => {
     link.classList.remove('active');
   }
 });
+
+ const hamburgerBtn = document.getElementById("hamburgerMenu");
+  const dropdown = document.getElementById("hamburgerDropdown");
+
+  hamburgerBtn.addEventListener("click", () => {
+    dropdown.classList.toggle("show");
+  });
+
+  // Optional: close dropdown when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!hamburgerBtn.contains(e.target) && !dropdown.contains(e.target)) {
+      dropdown.classList.remove("show");
+    }
+  });

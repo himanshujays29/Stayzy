@@ -6,9 +6,14 @@ import methodOverride from 'method-override';
 import ejsMate from "ejs-mate";
 import ExpressError from "./utils/ExpressError.js";
 import session from "express-session";
-import listings from "./routes/listing.js";
-import reviews from "./routes/review.js";
 import flash from "connect-flash";
+import passport from "passport";
+import localStrategy from "passport-local";
+import User from "./models/user.js";
+
+import listingsRouter from "./routes/listing.js";
+import reviewsRouter from "./routes/review.js";
+import userRouter from "./routes/user.js";
 
 const app = express();
 const port = 8080;
@@ -17,41 +22,57 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.engine("ejs", ejsMate);
-app.use(express.static( path.join(__dirname, "/public")));
- 
+app.use(express.static(path.join(__dirname, "/public")));
+
 const sessionOptions = {
     secret: "mysupersecretcode",
     resave: false,
     saveUninitialized: true,
     Cookie: {
-        expires: Date.now()+7*24*60*60*1000,
-        maxAge:7*24*60*60*1000,
+        expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
+        maxAge: 7 * 24 * 60 * 60 * 1000,
         httpOnly: true,
     }
 };
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/Stayzy";
 
-
 app.use(session(sessionOptions));
 app.use(flash());
-
-app.use((req, res, next)=>{
+app.use((req, res, next) => {
     res.locals.success = req.flash("success");
     res.locals.error = req.flash("error");
     next();
 });
+// Passport Athuntication 
 
-app.get("/", (req, res)=>{
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new localStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+//Demo User Testing
+
+// app.get("/demouser", async(req, res)=>{
+//     let fakeUser = new User({
+//         username: "sidhi", 
+//         email: "sidhi@example.com"
+//     });
+//   let registerdUser = await User.register(fakeUser, "helloworld");
+//   res.send(registerdUser);
+// });
+
+app.get("/", (req, res) => {
     res.render("listings/home.ejs");
 });
 
-main().then((res)=>{
+main().then((res) => {
     console.log("Connected to DB");
-}) .catch((err)=>{
+}).catch((err) => {
     console.log(err);
 })
 
@@ -59,30 +80,24 @@ async function main() {
     await mongoose.connect(MONGO_URL);
 }
 
-app.use((req, res, next)=>{
-    res.locals.success = req.flash("success");
-    res.locals.error = req.flash("error");
-    next();
-});
-
-app.use("/listings", listings);
-app.use ("/listings/:id/reviews", reviews);
-
+app.use("/listings", listingsRouter);
+app.use("/listings/:id/reviews", reviewsRouter);
+app.use("/", userRouter);
 
 
 // Error Handling Middleware
-app.all("/{*any}",(req, res, next) =>{
-    next( new ExpressError(404, "Page not found!"));
+app.all("/{*any}", (req, res, next) => {
+    next(new ExpressError(404, "Page not found!"));
 })
 
-app.use((err, req, res, next) =>{
-    let {statusCode = 500, message = "Somthing Went Wrong!"} = err;
-    res.status(statusCode).render("listings/error.ejs", {message});
+app.use((err, req, res, next) => {
+    let { statusCode = 500, message = "Somthing Went Wrong!" } = err;
+    res.status(statusCode).render("listings/error.ejs", { message });
     // res.status(statusCode).send(message);
 });
 
-app.listen(port, ()=>{
-    console.log(`Server is listning to port ${port}`); 
+app.listen(port, () => {
+    console.log(`Server is listning to port ${port}`);
 });
 
 
