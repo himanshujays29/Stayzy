@@ -1,0 +1,22 @@
+<% layout('/layout/layout') -%>
+<div class="login-container mt-3 mb-3">
+  <div class="login-box">
+    <h2 class="login-title">Sign In</h2>
+    <p class="subtitle">Enter your credentials to access your account</p>
+
+    <form action="/login" method="post" class="login-form">
+      <div>
+        <label for="username" class="login-label">Username</label>
+        <input type="text" id="username" name="username" class="login-input" placeholder="Enter your username" required>
+      </div>
+      <div>
+        <label for="password" class="login-label">Password</label>
+        <input type="password" id="password" name="password" class="login-input" placeholder="Enter your password" required>
+      </div>
+      <button type="submit" class="login-btn">Sign In</button>
+    </form>
+
+    <p class="signup-text">Don’t have an account? <a href="/signup">Sign up</a></p>
+    <a href="/listings" class="back-home">← Back to Home</a>
+  </div>
+</div>
