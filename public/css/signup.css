@@ -1,0 +1,116 @@
+
+ /*Signup Page*/
+
+ /* Container */
+ .signup-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 90vh;
+ }
+
+ /* Box */
+ .signup-box {
+   background: #fff;
+   padding: 25px 30px;
+   border-radius: 8px;
+   border: 1px solid #e1e7ef;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+   text-align: center;
+   width: 420px;
+ }
+
+ /* Title */
+ .signup-box .signup-title {
+   margin-bottom: 5px;
+   font-size: 24px;
+   font-weight: 700;
+   color: #222;
+ }
+
+ /* Subtitle */
+ .signup-box .subtitle {
+   color: #808ea3;
+   font-size: 14px;
+   margin-bottom: 25px;
+   font-size: .875rem;
+   line-height: 1.25rem;
+ }
+
+ /* Form */
+ .signup-box .signup-form {
+   text-align: left;
+ }
+
+ /* Labels */
+ .signup-box .signup-label {
+   display: block;
+   margin-bottom: 6px;
+   font-weight: bold;
+   font-size: 14px;
+   color: #333;
+ }
+
+ /* Inputs */
+ .signup-box .signup-input {
+   width: 100%;
+   padding: 12px;
+   margin-bottom: 20px;
+   border: 1px solid #ddd;
+   border-radius: 5px;
+   font-size: 14px;
+ }
+
+ .signup-box .signup-input:focus {
+   border-color: #0c91ca;
+   outline: none;
+ }
+
+ /* Button */
+ .signup-box .signup-btn {
+   width: 100%;
+   padding: 12px;
+   background: #0c91ca;
+   color: #fff;
+   font-weight: bold;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   font-size: 15px;
+ }
+
+ .signup-box .signup-btn:hover {
+   background: #0a7ba9;
+ }
+
+ /* Login text */
+ .signup-box .login-text {
+   margin: 20px 0 10px;
+   font-size: 14px;
+   color: #808ea3;
+   text-align: center;
+ }
+
+ .signup-box .login-text a {
+   color: #0c91ca;
+   font-weight: bold;
+   text-decoration: none;
+ }
+
+ .signup-box .login-text a:hover {
+   text-decoration: underline;
+ }
+
+ /* Back to home */
+ .signup-box .back-home {
+   display: inline-block;
+   margin-top: 10px;
+   font-size: 14px;
+   color: #808ea3;
+   text-decoration: none;
+   transition: color 0.2s ease;
+ }
+
+ .signup-box .back-home:hover {
+   color: #0c91ca;
+ }
