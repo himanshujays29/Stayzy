@@ -1,13 +1,24 @@
-<% if(success && success.length){ %> 
-    <div class="alert alert-success alert-dismissible fade show col-6 offset-3 mt-3" role="alert">
-        <%= success %>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
+
+<% if(success && success.length){ %>
+  <div class="flash-msg flash-success">
+    <i class="fas fa-check-circle"></i>
+    <div>
+      <strong>Success</strong>
+      <p><%= success %></p>
+    </div>
+    <span class="flash-close">&times;</span>
+  </div>
 <% } %>
 
-<% if(error && error.length){ %> 
-  <div class="alert alert-danger alert-dismissible fade show col-6 offset-3 mt-3" role="alert">
-      <%= error %>
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+<% if(error && error.length){ %>
+  <div class="flash-msg flash-error">
+    <i class="fas fa-times-circle"></i>
+    <div>
+      <strong>Error</strong>
+      <p><%= error %></p>
     </div>
+    <span class="flash-close">&times;</span>
+  </div>
 <% } %>
+
+<script src="/JS/flash.js"></script>
