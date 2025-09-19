@@ -1,0 +1,72 @@
+.flash-msg {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  min-width: 315px;
+  max-width: 400px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  font-size: 14px;
+  color: #333;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: slideIn 0.5s forwards;
+  z-index: 1000;
+  border: 1px solid #e1e7ef;
+}
+
+.flash-msg p {
+  margin: 0;
+  font-size: 13px;
+  color: #555;
+}
+
+.flash-msg strong {
+  font-size: 15px;
+    display: block;
+    margin-bottom: 1px;
+}
+
+.flash-success i {
+  color: #28a745; /* green */
+  font-size: 18px;
+  margin-top: 2px;
+}
+
+.flash-error i {
+  color: #dc3545; /* red */
+  font-size: 18px;
+  margin-top: 2px;
+}
+
+.flash-close {
+  font-weight: 700;
+    margin-left: auto;
+    cursor: pointer;
+    font-size: 25px;
+    color: #888;
+  display: none;
+}
+
+.flash-msg:hover .flash-close {
+  display: inline;
+}
+
+.flash-close:hover{
+  color: #222;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideOut {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(120%); }
+}
