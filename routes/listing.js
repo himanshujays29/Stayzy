@@ -19,10 +19,41 @@ const validateListing = (req, res, next) =>{
 
 //Index Route 
 
+// router.get("/", wrapAsync(async (req, res) => {
+//    const allListings = await Listing.find({});
+//    const totalCount = await Listing.countDocuments(); 
+//    res.render("listings/index.ejs", {allListings, totalCount});
+// }));
+
 router.get("/", wrapAsync(async (req, res) => {
-   const allListings = await Listing.find({});
-   res.render("listings/index.ejs", {allListings});
+   const { search, sort } = req.query;
+
+   let query = {};
+   if (search) {
+      query.$or = [
+         { title: { $regex: search, $options: "i" } },
+         { location: { $regex: search, $options: "i" } },
+         { country: { $regex: search, $options: "i" } }
+      ];
+   }
+
+   let sortOption = {};
+   if (sort === "low") sortOption.price = 1;
+   if (sort === "high") sortOption.price = -1;
+   if (sort === "rated") sortOption.rating = -1;
+
+   const allListings = await Listing.find(query).sort(sortOption);
+   const totalCount = await Listing.countDocuments(query);
+
+
+   res.render("listings/index.ejs", { 
+      allListings, 
+      totalCount,
+      search,   
+      sort      
+   });
 }));
+
 
 //New Route
 
