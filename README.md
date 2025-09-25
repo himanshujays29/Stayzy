@@ -91,4 +91,14 @@ For questions, suggestions, or issues, please [open an issue](https://github.com
 
 ---
 
+## 👩‍💻 Contributors
+
+Thanks goes to these amazing people:
+
+<a href="https://github.com/himanshujays29/Stayzy/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=himanshujays29/Stayzy" />
+</a>
+
+---
+
 > _Crafted with ❤️ by the Stayzy team._
