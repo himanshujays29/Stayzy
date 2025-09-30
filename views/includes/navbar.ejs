@@ -8,7 +8,7 @@
     </div>
 
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" a
+    <button class="navbar-toggler ms-auto mb-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" a
       ria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -17,6 +17,13 @@
         <a class="nav-link" href="/">Home</a>
         <a class="nav-link" href="/listings">All Listings</a>
         <a class="nav-link" href="/listings/new">Add New Listings</a>
+        <% if(!currUser) { %>
+          <a href="/signup" class="res-dp nav-link"> Sign Up</a>
+          <a href="/login" class="res-dp nav-link"> Log in</a>
+        <% } %>
+        <% if(currUser) { %>
+          <a href="/logout" class="res-dp nav-link"> Log out</a>
+        <% } %>
       </div>
     </div>
     <div class="brows-btn">
@@ -33,9 +40,15 @@
     <div class="dropdown" id="dropdown">
       <button class="dropdown-btn"><i class="fas fa-bars"></i></button>
       <div class="dropdown-menu">
-        <a href="/login"><i class="fas fa-sign-in-alt"></i> Login</a>
-        <a href="/signup"><i class="fas fa-user-plus"></i> Sign Up</a>
+        <% if(!currUser) { %>
+          <a href="/signup"><i class="fas fa-user-plus"></i> Sign Up</a>
+          <a href="/login"><i class="fas fa-sign-in-alt"></i> Log in</a>
+        <% } %>
+        <% if(currUser) { %>
+          <a href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Log out</a>
+        <% } %>
       </div>
     </div>
   </div>
 </nav>
+
