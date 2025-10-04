@@ -1,55 +1,59 @@
 <% layout('/layout/layout') -%>
 
-<section class="listing-header">
-  <div class="listing-container">
-    <h1 class="listing-title">All Properties</h1>
-    <p class="listing-subtitle">Discover amazing places to stay around the world</p>
+  <section class="listing-header">
+    <div class="listing-container">
+      <h1 class="listing-title">All Properties</h1>
+      <p class="listing-subtitle">Discover amazing places to stay around the world</p>
 
-    <form action="/listings" method="get" class="listing-controls">
-      <!-- Search box -->
-      <div class="search-box">
-        <i class="fas fa-search"></i>
-        <input 
-          type="text" 
-          name="search" 
-          value="<%= typeof search !== 'undefined' ? search : '' %>" 
-          placeholder="Search by title, location, or country..."
-        >
-      </div>
-
-      <!-- Sort dropdown -->
-      <div class="custom-dpn">
-        <button type="button" class="dpn-btn" id="sortToggle">
-          <i class="fas fa-sliders-h"></i>
-          <span id="selected"><%= sort ? sort.charAt(0).toUpperCase() + sort.slice(1) : "Featured" %></span>
-          <i class="fas fa-chevron-down arrow"></i>
-        </button>
-        <ul class="dpn-menu" id="sortMenu">
-          <li class="<%= sort === 'featured' || !sort ? 'active' : '' %>" data-value="featured"><i class="fas fa-check"></i> Featured</li>
-          <li class="<%= sort === 'low' ? 'active' : '' %>" data-value="low"><i class="fas fa-check"></i> Price: Low to High</li>
-          <li class="<%= sort === 'high' ? 'active' : '' %>" data-value="high"><i class="fas fa-check"></i> Price: High to Low</li>
-          <li class="<%= sort === 'rated' ? 'active' : '' %>" data-value="rated"><i class="fas fa-check"></i> Highest Rated</li>
-        </ul>
-        <input type="hidden" name="sort" id="sortInput" value="<%= sort || 'featured' %>">
-      </div>
-    </form>
-
-    <p class="listing-count">Showing <%= allListings.length %> of <%= totalCount %> properties</p>
-  </div>
-</section>
-
-<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
-  <% for (let listing of allListings) { %>
-    <a href="/listings/<%= listing._id %>" class="listing-link">
-      <div class="card col listing-card" style="width: 20rem;">
-        <img src="<%= listing.image %>" style="height: 20rem;" class="card-img-top card-img" alt="listing_image">
-        <div class="card-body">
-          <p class="card-text">
-            <b><%= listing.title %></b> <br>
-            &#8377;<%= listing.price ? listing.price.toLocaleString("en-IN") : "N/A" %> / Night <br>
-          </p>
+      <form action="/listings" method="get" class="listing-controls">
+        <!-- Search box -->
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" name="search" value="<%= typeof search !== 'undefined' ? search : '' %>"
+            placeholder="Search by title, location, or country...">
         </div>
-      </div>
-    </a>
-  <% } %>
-</div>
+
+        <!-- Sort dropdown -->
+        <div class="custom-dpn">
+          <button type="button" class="dpn-btn" id="sortToggle">
+            <i class="fas fa-sliders-h"></i>
+            <span id="selected">
+              <%= sort ? sort.charAt(0).toUpperCase() + sort.slice(1) : "Featured" %>
+            </span>
+            <i class="fas fa-chevron-down arrow"></i>
+          </button>
+          <ul class="dpn-menu" id="sortMenu">
+            <li class="<%= sort === 'featured' || !sort ? 'active' : '' %>" data-value="featured"><i
+                class="fas fa-check"></i> Featured</li>
+            <li class="<%= sort === 'low' ? 'active' : '' %>" data-value="low"><i class="fas fa-check"></i> Price: Low
+              to High</li>
+            <li class="<%= sort === 'high' ? 'active' : '' %>" data-value="high"><i class="fas fa-check"></i> Price:
+              High to Low</li>
+            <li class="<%= sort === 'rated' ? 'active' : '' %>" data-value="rated"><i class="fas fa-check"></i> Highest
+              Rated</li>
+          </ul>
+          <input type="hidden" name="sort" id="sortInput" value="<%= sort || 'featured' %>">
+        </div>
+      </form>
+
+      <p class="listing-count">Showing <%= allListings.length %> of <%= totalCount %> properties</p>
+    </div>
+  </section>
+
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+    <% for (let listing of allListings) { %>
+      <a href="/listings/<%= listing._id %>" class="listing-link">
+        <div class="card col listing-card" style="width: 20rem;">
+          <img src="<%= listing.image %>" style="height: 20rem;" class="card-img-top card-img" alt="listing_image">
+          <div class="card-body">
+            <p class="card-text">
+              <b>
+                <%= listing.title %>
+              </b> <br>
+              &#8377;<%= listing.price ? listing.price.toLocaleString("en-IN") : "N/A" %> / Night <br>
+            </p>
+          </div>
+        </div>
+      </a>
+      <% } %>
+  </div>

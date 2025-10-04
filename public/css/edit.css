@@ -1,110 +1,109 @@
 /* Container */
 .edit-listing-container {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 0 1rem;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
 
 /* Card box */
 .edit-card {
-    background: #fff;
-    border: 1px solid #e1e7ef;
-    border-radius: 10px;
-    padding: 2rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  background: #fff;
+  border: 1px solid #e1e7ef;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 /* Title */
 .edit-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-    color: #2d3748;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #2d3748;
 }
 
 /* Inputs */
 .edit-input,
 .edit-textarea {
-    border-radius: 6px;
-    border: 1px solid #e1e7ef;
-    padding: 10px 14px;
-    font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #e1e7ef;
+  padding: 10px 14px;
+  font-size: 14px;
 }
 
 /* Buttons */
 .edit-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
 }
 
 .save-btn {
-    border: none;
-    color: white;
-    padding: 0.6rem 1.2rem;
-    font-size: 14px;
-    border-radius: 6px;
+  border: none;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  font-size: 14px;
+  border-radius: 6px;
 }
 
 .cancel-btn {
-    border: 1px solid #e1e7ef !important;
-    color: black;
-    font-weight: 550;
-    padding: 0.6rem 1.2rem;
-    font-size: 14px;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: background 0.2s, color 0.2s;
+  border: 1px solid #e1e7ef !important;
+  color: black;
+  font-weight: 550;
+  padding: 0.6rem 1.2rem;
+  font-size: 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
 }
 
 .cancel-btn:hover {
-    background: #e5fcff;
-    color: #0c91ca;
+  background: #e5fcff;
+  color: #0c91ca;
 }
 
 /* Back to property */
 .back-to-property {
-    padding: 10px 10px;
-    display: inline-block;
-    font-size: 14px;
-    margin-bottom: 15px;
-    text-decoration: none;
-    font-weight: 550;
-    border-radius: 7px;
-    color: #222;
-    transition: background 0.3s, color 0.3s;
+  padding: 10px 10px;
+  display: inline-block;
+  font-size: 14px;
+  margin-bottom: 15px;
+  text-decoration: none;
+  font-weight: 550;
+  border-radius: 7px;
+  color: #222;
+  transition: background 0.3s, color 0.3s;
 }
 
 .back-to-property i {
-    margin-right: 10px;
-    font-weight: 600;
+  margin-right: 10px;
+  font-weight: 600;
 }
 
 .back-to-property:hover {
-    background: #e5fcff;
-    color: #0c91ca;
+  background: #e5fcff;
+  color: #0c91ca;
 }
 
 .edit-card-narrow {
-    max-width: 600px;
-    margin: 0 auto;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-
 .save-btn {
-    background-color: rgb(12 145 202 / 100%);
-    border: none;
-    color: #fff !important;
-    font-weight: 500;
-    transition: background-color 0.1s ease;
+  background-color: rgb(12 145 202 / 100%);
+  border: none;
+  color: #fff !important;
+  font-weight: 500;
+  transition: background-color 0.1s ease;
 }
 
 .save-btn i {
-    margin-right: 10px;
-    font-weight: 500;
+  margin-right: 10px;
+  font-weight: 500;
 }
 
 .save-btn:hover {
-    background-color: rgb(12 145 202 / 90%) !important;
+  background-color: rgb(12 145 202 / 90%) !important;
 }

@@ -1,0 +1,84 @@
+import Listing from "../models/listing.js";
+
+export const index = async (req, res) => {
+  const { search, sort } = req.query;
+
+  let query = {};
+  if (search) {
+    query.$or = [
+      { title: { $regex: search, $options: "i" } },
+      { location: { $regex: search, $options: "i" } },
+      { country: { $regex: search, $options: "i" } },
+    ];
+  }
+
+  let sortOption = {};
+  if (sort === "low") sortOption.price = 1;
+  if (sort === "high") sortOption.price = -1;
+  if (sort === "rated") sortOption.rating = -1;
+
+  const allListings = await Listing.find(query).sort(sortOption);
+  const totalCount = await Listing.countDocuments(query);
+
+  res.render("listings/index.ejs", {
+    allListings,
+    totalCount,
+    search,
+    sort,
+  });
+};
+
+export const renderNewForm = (req, res) => {
+  res.render("listings/new.ejs");
+};
+
+export const showListing = async (req, res) => {
+  let { id } = req.params;
+  const listing = await Listing.findById(id)
+    .populate({
+      path: "reviews",
+      populate: {
+        path: "author",
+      },
+    })
+    .populate("owner");
+
+  if (!listing) {
+    req.flash("error", "Listing you Requestd for Does not Exist..!");
+    return res.redirect("/listings");
+  }
+  res.render("listings/show.ejs", { listing });
+};
+
+export const createListing = async (req, res, next) => {
+  const newListing = new Listing(req.body.listing);
+  newListing.owner = req.user._id;
+  await newListing.save();
+  req.flash("success", "New Listing Created!");
+  res.redirect("/listings");
+};
+
+export const renderEditForm = async (req, res) => {
+  let { id } = req.params;
+  const listing = await Listing.findById(id);
+  if (!listing) {
+    req.flash("error", "Listing you Requestd for Does not Exist..!");
+    return res.redirect("/listings");
+  }
+  res.render("listings/edit.ejs", { listing });
+};
+
+export const updateListing = async (req, res) => {
+  let { id } = req.params;
+  await Listing.findByIdAndUpdate(id, { ...req.body.listing });
+  req.flash("success", "Listing Updated!");
+  res.redirect(`/listings/${id}`);
+};
+
+export const deleteListing = async (req, res) => {
+  let { id } = req.params;
+  let deletedListing = await Listing.findByIdAndDelete(id);
+  console.log(deletedListing);
+  req.flash("success", "Listing Deleted!");
+  res.redirect("/listings");
+};

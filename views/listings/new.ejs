@@ -1,68 +1,70 @@
 <% layout('/layout/layout') -%>
 
-<section class="new-listing-container">
-  <h1 class="new-listing-title">List Your Property</h1>
-  <p class="new-listing-subtitle">Share your space with travelers and start earning today</p>
+  <section class="new-listing-container">
+    <h1 class="new-listing-title">List Your Property</h1>
+    <p class="new-listing-subtitle">Share your space with travelers and start earning today</p>
 
-  <form action="/listings" method="post" novalidate class="needs-validation new-listing-form">
+    <form action="/listings" method="post" novalidate class="needs-validation new-listing-form">
 
-    <!-- Box 1: Basic Information -->
-    <div class="new-listing-box new-listing-basic">
-      <h3 class="new-listing-box-title"><i class="fas fa-home"></i> Basic Information</h3>
+      <!-- Box 1: Basic Information -->
+      <div class="new-listing-box new-listing-basic">
+        <h3 class="new-listing-box-title"><i class="fas fa-home"></i> Basic Information</h3>
 
-      <div class="mb-3 new-listing-group">
-        <label for="title" class="form-label">Property Title *</label>
-        <input name="listing[title]" class="form-control" type="text" placeholder="e.g. Modern Downtown Apartment" required>
-        <div class="valid-feedback">Title looks good!</div>
-      </div>
+        <div class="mb-3 new-listing-group">
+          <label for="title" class="form-label">Property Title *</label>
+          <input name="listing[title]" class="form-control" type="text" placeholder="e.g. Modern Downtown Apartment"
+            required>
+          <div class="valid-feedback">Title looks good!</div>
+        </div>
 
-      <div class="mb-3 new-listing-group">
-        <label for="description" class="form-label">Description</label>
-        <textarea name="listing[description]" class="form-control" rows="4" placeholder="Describe your property, what makes it special, nearby attractions..." required></textarea>
-        <div class="invalid-feedback">Please enter a short description.</div>
-      </div>
-    </div>
-
-    <!-- Box 2: Pricing -->
-    <div class="new-listing-box new-listing-pricing">
-      <h3 class="new-listing-box-title"><i class="fas fa-tag"></i> Pricing</h3>
-      <div class="row">
-        <div class="mb-3 col-md-6 new-listing-group">
-          <label for="price" class="form-label">Price per Night (INR) *</label>
-          <input name="listing[price]" class="form-control" type="number" placeholder="₹ 1200" required>
-          <div class="invalid-feedback">Price should be valid.</div>
+        <div class="mb-3 new-listing-group">
+          <label for="description" class="form-label">Description</label>
+          <textarea name="listing[description]" class="form-control" rows="4"
+            placeholder="Describe your property, what makes it special, nearby attractions..." required></textarea>
+          <div class="invalid-feedback">Please enter a short description.</div>
         </div>
       </div>
-    </div>
 
-    <!-- Box 3: Location -->
-    <div class="new-listing-box new-listing-location">
-      <h3 class="new-listing-box-title"><i class="fas fa-map-marker-alt"></i> Location & Country</h3>
-      <div class="row">
-        <div class="mb-3 col-md-6 new-listing-group">
-          <label for="location" class="form-label">Location *</label>
-          <input name="listing[location]" class="form-control" type="text" placeholder="Jaipur, Rajasthan" required>
-          <div class="invalid-feedback">Location should be valid.</div>
-        </div>
-        <div class="mb-3 col-md-6 new-listing-group">
-          <label for="country" class="form-label">Country *</label>
-          <input name="listing[country]" class="form-control" type="text" placeholder="India" required>
-          <div class="invalid-feedback">Country name should be valid.</div>
+      <!-- Box 2: Pricing -->
+      <div class="new-listing-box new-listing-pricing">
+        <h3 class="new-listing-box-title"><i class="fas fa-tag"></i> Pricing</h3>
+        <div class="row">
+          <div class="mb-3 col-md-6 new-listing-group">
+            <label for="price" class="form-label">Price per Night (INR) *</label>
+            <input name="listing[price]" class="form-control" type="number" placeholder="₹ 1200" required>
+            <div class="invalid-feedback">Price should be valid.</div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Box 4: Image URL -->
-    <div class="new-listing-box new-listing-image">
-      <h3 class="new-listing-box-title"><i class="fas fa-image"></i> Property Image</h3>
-      <div class="mb-3 new-listing-group">
-        <label for="image" class="form-label">Image URL</label>
-        <input name="listing[image]" class="form-control" type="text" placeholder="https://example.com/image.jpg" required>
-        <div class="invalid-feedback">Please provide a valid image URL.</div>
+      <!-- Box 3: Location -->
+      <div class="new-listing-box new-listing-location">
+        <h3 class="new-listing-box-title"><i class="fas fa-map-marker-alt"></i> Location & Country</h3>
+        <div class="row">
+          <div class="mb-3 col-md-6 new-listing-group">
+            <label for="location" class="form-label">Location *</label>
+            <input name="listing[location]" class="form-control" type="text" placeholder="Jaipur, Rajasthan" required>
+            <div class="invalid-feedback">Location should be valid.</div>
+          </div>
+          <div class="mb-3 col-md-6 new-listing-group">
+            <label for="country" class="form-label">Country *</label>
+            <input name="listing[country]" class="form-control" type="text" placeholder="India" required>
+            <div class="invalid-feedback">Country name should be valid.</div>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <!-- Submit Button -->
-    <button type="submit" class=" new-listing-btn">List My Property</button>
-  </form>
-</section>
+      <!-- Box 4: Image URL -->
+      <div class="new-listing-box new-listing-image">
+        <h3 class="new-listing-box-title"><i class="fas fa-image"></i> Property Image</h3>
+        <div class="mb-3 new-listing-group">
+          <label for="image" class="form-label">Image URL</label>
+          <input name="listing[image]" class="form-control" type="text" placeholder="https://example.com/image.jpg">
+          <div class="invalid-feedback">Please provide a valid image URL.</div>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class=" new-listing-btn">List My Property</button>
+    </form>
+  </section>

@@ -10,7 +10,7 @@
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   font-size: 14px;
   color: #333;
   opacity: 0;
@@ -28,8 +28,8 @@
 
 .flash-msg strong {
   font-size: 15px;
-    display: block;
-    margin-bottom: 1px;
+  display: block;
+  margin-bottom: 1px;
 }
 
 .flash-success i {
@@ -46,10 +46,10 @@
 
 .flash-close {
   font-weight: 700;
-    margin-left: auto;
-    cursor: pointer;
-    font-size: 25px;
-    color: #888;
+  margin-left: auto;
+  cursor: pointer;
+  font-size: 25px;
+  color: #888;
   display: none;
 }
 
@@ -57,16 +57,28 @@
   display: inline;
 }
 
-.flash-close:hover{
+.flash-close:hover {
   color: #222;
 }
 
 @keyframes slideIn {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes slideOut {
-  from { opacity: 1; transform: translateX(0); }
-  to { opacity: 0; transform: translateX(120%); }
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(120%);
+  }
 }
