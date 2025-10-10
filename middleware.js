@@ -32,29 +32,26 @@ export const isOwner = async (req, res, next) => {
 
 export const validateAndUploadImage = async (req, res, next) => {
   try {
-    if (!req.files || !req.files["listing[image]"]) {
-      req.flash("error", "No file uploaded!");
-      return res.redirect("/listings/new");
+    if (req.files && req.files["listing[image]"]) {
+      const file = req.files["listing[image]"];
+      const allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
+
+      if (!allowedTypes.includes(file.mimetype)) {
+        req.flash("error", "Invalid file type! Only JPG, JPEG, PNG allowed.");
+        return res.redirect("back");
+      }
+
+      const result = await cloudinary.uploader.upload(file.tempFilePath, {
+        folder: "Stayzy_DEV",
+      });
+      req.cloudinaryResult = result;
     }
 
-    const file = req.files["listing[image]"];
-    const allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
-
-    if (!allowedTypes.includes(file.mimetype)) {
-      req.flash("error", "Invalid file type! Only JPG, JPEG, PNG allowed.");
-      return res.redirect("/listings/new");
-    }
-
-    const result = await cloudinary.uploader.upload(file.tempFilePath, {
-      folder: "Stayzy_DEV",
-    });
-
-    req.cloudinaryResult = result;
-    next(); 
+    next();
   } catch (err) {
     console.error(err);
     req.flash("error", "Something went wrong while uploading the image.");
-    return res.redirect("/listings/new");
+    return res.redirect("back");
   }
 };
 

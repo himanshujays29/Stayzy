@@ -29,6 +29,8 @@ router
   .put(
     isLoggedIn,
     isOwner,
+    validateAndUploadImage,
+    validateFormFields,
     validateListing,
     wrapAsync(listingController.updateListing)
   )
