@@ -17,6 +17,3 @@ export const reviewSchema = Joi.object({
     comment: Joi.string().required(),
   }).required(),
 });
-
-// export default listingSchema;
-// module.exports =  reviewSchema;

@@ -4,7 +4,7 @@
     <h1 class="new-listing-title">List Your Property</h1>
     <p class="new-listing-subtitle">Share your space with travelers and start earning today</p>
 
-    <form action="/listings" method="post" novalidate class="needs-validation new-listing-form">
+    <form action="/listings" method="post" novalidate class="needs-validation new-listing-form" enctype="multipart/form-data">
 
       <!-- Box 1: Basic Information -->
       <div class="new-listing-box new-listing-basic">
@@ -58,9 +58,8 @@
       <div class="new-listing-box new-listing-image">
         <h3 class="new-listing-box-title"><i class="fas fa-image"></i> Property Image</h3>
         <div class="mb-3 new-listing-group">
-          <label for="image" class="form-label">Image URL</label>
-          <input name="listing[image]" class="form-control" type="text" placeholder="https://example.com/image.jpg">
-          <div class="invalid-feedback">Please provide a valid image URL.</div>
+          <label for="image" class="form-label">Upload Listing Image</label>
+          <input name="listing[image]" class="form-control" type="file" accept=".jpg,.jpeg,.png">
         </div>
       </div>
 

@@ -10,6 +10,7 @@ import flash from "connect-flash";
 import passport from "passport";
 import localStrategy from "passport-local";
 import User from "./models/user.js";
+import fileUpload from "express-fileupload";
 
 import listingsRouter from "./routes/listing.js";
 import reviewsRouter from "./routes/review.js";
@@ -26,6 +27,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
+app.use(fileUpload({
+  useTempFiles: true,
+  tempFileDir: "/tmp/"
+}));
 
 const sessionOptions = {
   secret: "mysupersecretcode",
@@ -58,16 +63,6 @@ app.use((req, res, next) => {
   next();
 });
 
-//Demo User Testing
-
-// app.get("/demouser", async(req, res)=>{
-//     let fakeUser = new User({
-//         username: "sidhi",
-//         email: "sidhi@example.com"
-//     });
-//   let registerdUser = await User.register(fakeUser, "helloworld");
-//   res.send(registerdUser);
-// });
 
 app.get("/", (req, res) => {
   res.render("listings/home.ejs");

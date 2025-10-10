@@ -1,7 +1,12 @@
+if(process.env.NODE_ENV != "production"){
+   await import ('dotenv/config');
+}
+
+
 import express from "express";
 const router = express.Router();
 import wrapAsync from "../utils/wrapAsync.js";
-import { isLoggedIn, isOwner, validateListing } from "../middleware.js";
+import { isLoggedIn, isOwner, validateAndUploadImage, validateFormFields,validateListing } from "../middleware.js";
 import * as listingController from "../controllers/listings.js";
 
 router
@@ -9,10 +14,12 @@ router
   .get(wrapAsync(listingController.index))
   .post(
     isLoggedIn,
+    validateAndUploadImage,
+    validateFormFields,
     validateListing,
     wrapAsync(listingController.createListing)
   );
-
+  
 //New Route
 router.get("/new", isLoggedIn, listingController.renderNewForm);
 
