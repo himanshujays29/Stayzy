@@ -1,4 +1,5 @@
 import Listing from "../models/listing.js";
+import { geocode } from "../public/JS/geocode.js";
 
 export const index = async (req, res) => {
   const { search, sort } = req.query;
@@ -51,14 +52,25 @@ export const showListing = async (req, res) => {
 };
 
 export const createListing = async (req, res, next) => {
+  const location = await geocode(
+    `${req.body.listing.location}, ${req.body.listing.country}`
+  );
+  console.log(location);
+
   const newListing = new Listing(req.body.listing);
   const cloudResult = req.cloudinaryResult;
   let url = cloudResult.secure_url;
   let filename = cloudResult.public_id;
-
   newListing.owner = req.user._id;
   newListing.image = { url, filename };
-  await newListing.save();
+
+  newListing.geometry = {
+    type: "Point",
+    coordinates: [location.lon, location.lat],
+  };
+  let savedListing = await newListing.save();
+  console.log(savedListing);
+
   req.flash("success", "New Listing Created!");
   res.redirect("/listings");
 };
@@ -70,8 +82,8 @@ export const renderEditForm = async (req, res) => {
     req.flash("error", "Listing you Requestd for Does not Exist..!");
     return res.redirect("/listings");
   }
-let orignalImageUrl = listing.image.url;
-orignalImageUrl = orignalImageUrl.replace("/upload", "/upload/w_250")
+  let orignalImageUrl = listing.image.url;
+  orignalImageUrl = orignalImageUrl.replace("/upload", "/upload/w_250");
 
   res.render("listings/edit.ejs", { listing, orignalImageUrl });
 };
