@@ -55,7 +55,14 @@ export const createListing = async (req, res, next) => {
   const location = await geocode(
     `${req.body.listing.location}, ${req.body.listing.country}`
   );
-  console.log(location);
+
+  if (!location) {
+    req.flash(
+      "error",
+      "Location not found. Please try again with a valid address."
+    );
+    return res.redirect("/listings/new");
+  }
 
   const newListing = new Listing(req.body.listing);
   const cloudResult = req.cloudinaryResult;

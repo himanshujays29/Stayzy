@@ -23,11 +23,10 @@ export async function geocode(address) {
         display_name: res.data[0].display_name,
       };
     } else {
-      console.log("No results found for:", address);
       return null;
     }
   } catch (err) {
-    console.error("❌ Geocoding request failed:", err.message);
+    console.error("Geocoding request failed:", err.message);
     return null;
   }
 }
