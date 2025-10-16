@@ -244,7 +244,7 @@ body {
 }
 
 .card-img-top {
-  border-radius: 1rem !important;
+  border-radius: 12px !important;
   width: 100% !important;
   object-fit: cover !important;
 }
@@ -289,10 +289,6 @@ body {
 }
 
 /* Show image */
-
-.show-img {
-  height: 30vh;
-}
 
 .btns {
   display: flex;
@@ -700,7 +696,7 @@ body {
 /* Map */
 
 #map {
-  height: 400px; 
+  height: 400px;
   width: 100%;
   border-radius: 15px;
 }

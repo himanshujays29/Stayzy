@@ -48,7 +48,17 @@ export const showListing = async (req, res) => {
     req.flash("error", "Listing you Requestd for Does not Exist..!");
     return res.redirect("/listings");
   }
-  res.render("listings/show.ejs", { listing });
+
+  let avgRating = 0;
+  if (listing.reviews.length > 0) {
+    const total = listing.reviews.reduce(
+      (acc, review) => acc + review.rating,
+      0
+    );
+    avgRating = Math.round(total / listing.reviews.length);
+  }
+
+  res.render("listings/show.ejs", { listing, avgRating });
 };
 
 export const createListing = async (req, res, next) => {

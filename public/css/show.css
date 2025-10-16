@@ -1,0 +1,236 @@
+/* Container */
+.listing-show {
+  max-width: 880px;
+  margin: 1rem auto;
+  padding: 0 1rem;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* Back Button */
+.btp-show {
+  gap: 6px;
+  font-weight: 500;
+  margin: 10px 0;
+  transition: color 0.3s ease;
+}
+.btp-show:hover {
+  color: #0a78a9;
+  text-decoration: none;
+}
+
+/* Listing Card */
+.show-card {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 0.8rem;
+}
+
+.show-img {
+  width: 100%;
+  height: 370px;
+  margin-bottom: 15px;
+}
+
+/* Listing Body */
+.show-card .card-body {
+  padding: 1.5rem;
+}
+
+.show-card h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-top: 0.6rem;
+  margin-bottom: 1.1rem;
+  line-height: 2.25rem;
+}
+
+/* Price Section */
+
+/* Buttons */
+.btns {
+  display: flex;
+  gap: 1rem;
+}
+.btns a,
+.btns button {
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 0.6rem 1.4rem;
+  transition: all 0.3s ease;
+}
+.btns a {
+  background-color: #0c91ca;
+  border: none;
+  color: #fff;
+}
+.btns a:hover {
+  background-color: #0986bb;
+}
+.btns button {
+  background-color: #dc3545;
+  border: none;
+  color: #fff;
+}
+.btns button:hover {
+  background-color: #b92c3b;
+}
+
+/* Review Section */
+.reviews-section {
+  margin-top: 3rem;
+}
+.reviews-section h4 {
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+/* Review Form */
+.review-form {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+.review-form textarea {
+  resize: none;
+}
+.review-form button {
+  background-color: #0c91ca;
+  border: none;
+  color: #fff;
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+.review-form button:hover {
+  background-color: #0986bb;
+}
+
+/* Individual Reviews */
+.review-card {
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+.review-card h5 {
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.3rem;
+}
+.review-card p {
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+/* Rating Stars */
+.starability-slot input[type="radio"] {
+  display: none;
+}
+.starability-slot label {
+  font-size: 1.4rem;
+  color: #d1d5db;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.starability-slot input:checked ~ label,
+.starability-slot label:hover,
+.starability-slot label:hover ~ label {
+  color: #fbbf24;
+}
+
+/* Map */
+#map {
+  height: 300px;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+
+.card-text-owner {
+  border-radius: 15px;
+  padding: 3px;
+  text-align: center;
+  width: 138px;
+  color: #344256;
+  background-color: #dee4e9;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 600;
+}
+.avg-rating-box {
+  display: flex;
+  align-items: center;
+}
+
+.starability-result {
+  transform: scale(0.7);
+  margin-bottom: 0px;
+}
+
+.own-rate {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.avg-rating-box span {
+  margin-left: -16px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.25rem;
+}
+
+.listing-location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #808ea3;
+  font-size: 1rem;
+  margin-top: 0.3rem;
+}
+
+.listing-location i {
+  color: #808ea3;
+  font-size: 1rem;
+}
+
+.price-box {
+  width: 100%;
+  background-color: #f4f5f6;
+  padding: 1rem;
+  border-radius: 10px;
+  display: inline-block;
+  text-align: left;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.05);
+  margin: 1.1rem 0;
+}
+
+.price-box .price {
+  color: #0c91ca;
+  font-weight: 700;
+  margin: 0;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.price-box .per-night {
+  font-weight: 500;
+  color: #808ea3;
+  font-size: 0.9rem;
+  margin: 0.2rem 0 0;
+}
+
+.dicr-box {
+  color: #808ea3;
+  line-height: 1.625;
+  margin-bottom: 1rem;
+}
