@@ -3,11 +3,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const map = L.map("map").setView([lat, lon], 13);
 
   const baseMaps = {
-    OpenStreetMap: L.tileLayer(
+    "OpenStreetMap": L.tileLayer(
       "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     ),
-    "Stamen Terrain": L.tileLayer(
-      "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}"
+     "Carto Dark": L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}"),
+    "WorldImagery": L.tileLayer(
+      "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
     ),
   };
 

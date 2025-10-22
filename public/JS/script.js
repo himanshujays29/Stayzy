@@ -1,5 +1,3 @@
-
-
 (() => {
   "use strict";
 
@@ -22,7 +20,6 @@
     );
   });
 })();
-
 
 const navbarLinks = document.querySelectorAll(".navbar-nav .nav-link");
 const currentPath = window.location.pathname;
@@ -83,3 +80,14 @@ document.addEventListener("click", (e) => {
 
 // Map
 
+let taxSwitch = document.getElementById("switchCheckDefault");
+taxSwitch.addEventListener("click", () => {
+  let taxInfo = document.getElementsByClassName("tax-info");
+  for (info of taxInfo) {
+    if (info.style.display != "inline") {
+      info.style.display = "inline";
+    } else {
+      info.style.display = "none";
+    }
+  }
+});

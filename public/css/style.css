@@ -700,3 +700,39 @@ body {
   width: 100%;
   border-radius: 15px;
 }
+
+#filters {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filter {
+  margin-top: 10px;
+  text-align: center;
+  opacity: 0.7;
+}
+
+.filter:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.filter p {
+  font-size: 0.8rem;
+}
+
+.tax-info {
+  display: none;
+}
+
+.tax-toggle {
+  border: 2px solid #e1e7ef;
+  border-radius: 1rem;
+  height: 3rem;
+  padding: 1rem;
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+}
