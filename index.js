@@ -43,7 +43,8 @@ const sessionOptions = {
   },
 };
 
-const MONGO_URL = "mongodb://127.0.0.1:27017/Stayzy";
+// const MONGO_URL = "mongodb://127.0.0.1:27017/Stayzy";
+const dbUrl= process.env.ATLASDB_URL;
 
 app.use(session(sessionOptions));
 app.use(flash());
@@ -77,7 +78,7 @@ main()
   });
 
 async function main() {
-  await mongoose.connect(MONGO_URL);
+  await mongoose.connect(dbUrl);
 }
 
 app.use("/listings", listingsRouter);
