@@ -703,7 +703,7 @@ body {
 
 #filters {
   display: flex;
-  gap: 2rem;
+  gap: 1.7rem;
   flex-wrap: wrap;
   align-items: center;
 }
@@ -735,4 +735,9 @@ body {
   margin-left: 1rem;
   display: flex;
   align-items: center;
+}
+
+.inp-labl{
+  font-size: 15px !important;
+    color: #373b41 !important;
 }

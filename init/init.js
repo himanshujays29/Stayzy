@@ -42,7 +42,7 @@ const initDB = async () => {
       };
       const listing = new Listing({
         ...item,
-        owner: "68e1526eea6c8f583718a18a",
+        owner: "68dcd5d0670eb8a9adf6eb2e",
         geometry,
       });
       await listing.save();
