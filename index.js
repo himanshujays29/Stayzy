@@ -6,6 +6,7 @@ import methodOverride from "method-override";
 import ejsMate from "ejs-mate";
 import ExpressError from "./utils/ExpressError.js";
 import session from "express-session";
+import MongoStore from 'connect-mongo'
 import flash from "connect-flash";
 import passport from "passport";
 import localStrategy from "passport-local";
@@ -32,8 +33,23 @@ app.use(fileUpload({
   tempFileDir: "/tmp/"
 }));
 
+const dbUrl= process.env.ATLASDB_URL;
+
+const store = MongoStore.create({
+  mongoUrl: dbUrl,
+  crypto: {
+    secret: process.env.SESSION_SECRET,
+  },
+  touchAfter: 24 * 3600,
+});
+
+store.on("error", function (e) {
+  console.log("SESSION STORE ERROR", e);
+});
+
 const sessionOptions = {
-  secret: "mysupersecretcode",
+  store: store,
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
   Cookie: {
@@ -43,8 +59,6 @@ const sessionOptions = {
   },
 };
 
-// const MONGO_URL = "mongodb://127.0.0.1:27017/Stayzy";
-const dbUrl= process.env.ATLASDB_URL;
 
 app.use(session(sessionOptions));
 app.use(flash());
