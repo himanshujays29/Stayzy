@@ -82,6 +82,14 @@ app.get("/", (req, res) => {
   res.render("listings/home.ejs");
 });
 
+app.get("/privacyPolicy", (req, res) => {
+  res.render("pptc/privacyPolicy.ejs");
+});
+
+app.get("/termsConditions", (req, res) => {
+  res.render("pptc/termsConditions.ejs");
+});
+
 main()
   .then((res) => {
     console.log("Connected to DB");

@@ -210,27 +210,35 @@ body {
   font-size: 0.9rem;
   width: 100%;
   display: flex;
+  color: #808ea3;
   align-items: center;
   justify-content: center;
 }
 
-.f-info-socials i {
+.f-info-links a{
+    color: #808ea3;
+}
+
+.f-info-socials a i {
   margin: 0.5rem;
   font-size: 1.2rem;
   transition: all 0.2s ease;
 }
 
-.f-info-socials i:hover {
+.f-info-socials a i:hover {
   background: #e5fcff;
   color: #0c91ca;
   transform: scale(1.2);
 }
+.f-info-socials a{
+  color: #808ea3;
+}
 
 .f-info {
   display: flex;
+  gap: 0.2rem;
   height: 5rem;
   text-align: center;
-  background-color: #ebebeb;
   flex-wrap: wrap;
   justify-content: center;
   align-content: space-evenly;

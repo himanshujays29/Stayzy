@@ -155,7 +155,8 @@
               <i
                 class="fa-star <%= i <= review.rating ? 'fas text-warning' : 'far text-muted' %>"
               ></i>
-              <% } %>
+              <% } %> <% if (currUser && review.author &&
+              review.author._id.equals(currUser._id)) { %>
               <form
                 action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE"
                 method="post"
@@ -165,6 +166,7 @@
                   <i class="fa-regular fa-trash-can"></i>
                 </button>
               </form>
+              <% } %>
             </div>
           </div>
 
