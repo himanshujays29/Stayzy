@@ -32,8 +32,8 @@ Stayzy is a modern web application designed with **JavaScript**, **EJS**, and **
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (vXX+)
-- [npm](https://www.npmjs.com/) (vXX+)
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/) 
 
 ### Installation
 
@@ -46,10 +46,10 @@ npm install
 ### Running the App
 
 ```bash
-npm start
+node index.js
 ```
 
-The app will be accessible at [http://localhost:8080](http://localhost:3000) by default.
+The app will be accessible at [http://localhost:8080](http://localhost:8080) by default.
 
 ---
 
