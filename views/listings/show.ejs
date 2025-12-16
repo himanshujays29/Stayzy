@@ -37,13 +37,13 @@
           <p class="per-night">per night</p>
         </div>
         <% if (listing.hostMobile) { %>
-          <p class="mt-2">
+          <div class="mt-2 listing-location">
             <i class="fas fa-phone"></i>
             <strong>Host Contact:</strong>
             <a href="tel:<%= listing.hostMobile %>">
               <%= listing.hostMobile %>
             </a>
-          </p>
+          </div>
           <% } %>
             <p class="dicr-box">
               <%= listing.description %>
