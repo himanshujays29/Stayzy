@@ -393,3 +393,14 @@ margin-right: 6px;
     grid-template-columns: 1fr;
   }
 }
+
+
+.avg-rating-box a:hover {
+  text-decoration: underline;
+  color: #0c91ca;
+}
+
+.host-mo a {
+  text-decoration: none;
+  color: #222222;
+}
