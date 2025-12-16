@@ -395,7 +395,7 @@ margin-right: 6px;
 }
 
 
-.avg-rating-box a:hover {
+host-mo a:hover {
   text-decoration: underline;
   color: #0c91ca;
 }
@@ -403,4 +403,9 @@ margin-right: 6px;
 .host-mo a {
   text-decoration: none;
   color: #222222;
+}
+
+.host-mo{
+  margin-bottom: 0.2rem !important;
+    margin-top: 0.2rem !important;
 }
