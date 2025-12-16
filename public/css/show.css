@@ -6,6 +6,11 @@
   font-family: "Plus Jakarta Sans", sans-serif;
 }
 
+.fa-phone {
+color: #28a745;
+margin-right: 6px;
+}
+
 /* Back Button */
 .btp-show {
   gap: 6px;

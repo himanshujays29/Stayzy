@@ -63,6 +63,7 @@ export const validateFormFields = (req, res, next) => {
       price: req.body["listing[price]"],
       location: req.body["listing[location]"],
       country: req.body["listing[country]"],
+      hostMobile: req.body["listing[hostMobile]"],
     },
   };
   next();

@@ -4,7 +4,8 @@
     <h1 class="new-listing-title">List Your Property</h1>
     <p class="new-listing-subtitle">Share your space with travelers and start earning today</p>
 
-    <form action="/listings" method="post" novalidate class="needs-validation new-listing-form" enctype="multipart/form-data">
+    <form action="/listings" method="post" novalidate class="needs-validation new-listing-form"
+      enctype="multipart/form-data">
 
       <!-- Box 1: Basic Information -->
       <div class="new-listing-box new-listing-basic">
@@ -51,6 +52,14 @@
             <input name="listing[country]" class="form-control" type="text" placeholder="India" required>
             <div class="invalid-feedback">Country name should be valid.</div>
           </div>
+        </div>
+      </div>
+
+      <div class="new-listing-box new-listing-pricing">
+        <h3 class="new-listing-box-title"><i class="fas fa-image"></i> Host Mobile Number</h3>
+        <div class="mb-3 new-listing-group">
+          <label for="mobail" class="form-label">Mobile Number </label>
+          <input type="tel" class="form-control" name="listing[hostMobile]" placeholder="10-digit mobile number" />
         </div>
       </div>
 

@@ -23,6 +23,10 @@ const listingSchema = new Schema({
   country: {
     type: String,
   },
+  hostMobile: {
+    type: String,
+    trim: true,
+},
   reviews: [
     {
       type: Schema.Types.ObjectId,
